@@ -1,6 +1,7 @@
 /**
  * Adds the promise polyfill for IE 11
  */
+
 require('es6-promise').polyfill();
 
 /**
@@ -16,11 +17,16 @@ import Vuex from 'vuex'
 Vue.use( Vuex )
 
 /**
+ * Imports all of the modules used in the application to build the data store.
+ */
+import { cafes } from "./modules/cafes.js";
+
+/**
  * Initializes Vuex on Vue.
  */
 export default new Vuex.Store({
     modules: {
-
+        cafes
     }
 });
 
