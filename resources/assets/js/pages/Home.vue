@@ -13,7 +13,7 @@
 <script>
     export default {
         created() {
-            this.$store.dispatch('loadCafes');
+            this.$store.dispatch( 'loadCafes' );
         },
 
         /*
@@ -29,6 +29,6 @@
             cafes() {
                 return this.$store.getters.getCafes;
             }
-        },
+        }
     }
 </script>

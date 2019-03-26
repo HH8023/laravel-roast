@@ -27,26 +27,26 @@ export const cafes = {
             commit( 'setCafesLoadStatus', 1 );
 
             CafeAPI.getCafes()
-                .then( function (response) {
+                .then( function( response ){
                     commit( 'setCafes', response.data );
                     commit( 'setCafesLoadStatus', 2 );
                 })
-                .catch(function () {
-                    commit('setCafes', []);
-                    commit('setCafesLoadStatus', 3);
+                .catch( function(){
+                    commit( 'setCafes', [] );
+                    commit( 'setCafesLoadStatus', 3 );
                 });
         },
         loadCafe( { commit }, data ){
-            commit('setCafeLoadStatus', 1);
+            commit( 'setCafeLoadStatus', 1 );
 
-            CafeAPI.getCafe(data.id)
-                .then(function (response) {
-                    commit('setCafe',response.data);
-                    commit('setCafeLoadStatus',2);
+            CafeAPI.getCafe( data.id )
+                .then( function( response ){
+                    commit( 'setCafe', response.data );
+                    commit( 'setCafeLoadStatus', 2 );
                 })
-                .catch(function () {
-                    commit('setCafe',{});
-                    commit('setCafeLoadStatus',3);
+                .catch( function(){
+                    commit( 'setCafe', {} );
+                    commit( 'setCafeLoadStatus', 3 );
                 });
         }
     },
@@ -55,17 +55,17 @@ export const cafes = {
      * Defines the mutations used
      */
     mutations: {
-        setCafesLoadStatus( state, status ) {
+        setCafesLoadStatus( state, status ){
             state.cafesLoadStatus = status;
         },
 
-        setCafes( state, cafes ) {
+        setCafes( state, cafes ){
             state.cafes = cafes;
         },
         setCafeLoadStatus( state, status ){
             state.cafeLoadStatus = status;
         },
-        setCafe( state, cafe ) {
+        setCafe( state, cafe ){
             state.cafe = cafe;
         }
     },
@@ -89,5 +89,5 @@ export const cafes = {
         getCafe( state ){
             return state.cafe;
         }
-    },
+    }
 };

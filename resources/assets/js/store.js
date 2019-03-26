@@ -19,7 +19,7 @@ Vue.use( Vuex )
 /**
  * Imports all of the modules used in the application to build the data store.
  */
-import { cafes } from "./modules/cafes.js";
+import { cafes } from './modules/cafes.js'
 
 /**
  * Initializes Vuex on Vue.
