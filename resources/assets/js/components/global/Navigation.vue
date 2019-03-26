@@ -1,5 +1,5 @@
-<style>
-@import "~@/abstracts/_variables.scss";
+<style lang="scss">
+    @import '~@/abstracts/_variables.scss';
 
     nav.top-navigation{
         background-color: $white;
@@ -15,12 +15,12 @@
             padding: 0px 20px 0px 20px;
             font-family: 'Josefin Sans', sans-serif;
             font-weight: bold;
-            color: #dark-color;
+            color: $dark-color;
 
             &:hover{
-                 color: white;
-                 background-color: $dark-color;
-             }
+                color: white;
+                background-color: $dark-color;
+            }
         }
 
         ul.links{
@@ -39,7 +39,7 @@
 
                     &:hover{
                         color: $dark-color;
-                     }
+                    }
                 }
             }
         }
@@ -73,23 +73,23 @@
         </ul>
 
         <div class="right">
-            <img class="avatar" :src="user.avatar" v-show="userLoadStatus == 2" />
+            <img class="avatar" :src="user" v-show="userLoadStatus === 2" />
         </div>
     </nav>
 </template>
 <script>
     export default {
-        //定义组件的计算属性
+        // 定义组件的计算属性
         computed: {
-            //从Vuex中获取用户加载状态
+            // 从 Vuex 中获取用户加载状态
             userLoadStatus(){
-                return this.$store.gettersgetUserLoadStatus;
+                return this.$store.getters.getUserLoadStatus;
             },
 
-            //从Vuex中获取用户信息
-            user() {
+            // 从 Vuex 中获取用户信息
+            user(){
                 return this.$store.getters.getUser;
             }
-        },
+        }
     }
 </script>

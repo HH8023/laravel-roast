@@ -1,9 +1,10 @@
 <style>
 
 </style>
+
 <template>
     <div id="app-layout">
-        <Navigation></Navigation>
+        <navigation></navigation>
         <router-view></router-view>
     </div>
 </template>
@@ -15,9 +16,9 @@
         components: {
             Navigation
         },
-        created() {
-            this.$store.dispatch('loadCafes');
-            this.$store.dispatch('loadUser');
+        created(){
+            this.$store.dispatch( 'loadCafes' );
+            this.$store.dispatch( 'loadUser' );
         }
     }
 </script>
