@@ -12,12 +12,13 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//, 'middleware' => 'auth:api'
+Route::group(['prefix' => 'v1'], function () {
+//    Route::get('/user',function (Request $request) {
+//        return $request->user();
+//    });
+    Route::get('/user', 'API\UsersController@getUser');
 
-Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
-    Route::get('/user',function (Request $request) {
-        return $request->user();
-    });
-});
 /*
     |-------------------------------------------------------------------------------
     | Get All Cafes
@@ -40,13 +41,22 @@ Route::get('/cafes', 'API\CafesController@getCafes');
 */
 Route::get('/cafes/{id}', 'API\CafesController@getCafe');
 
-/*
- |-------------------------------------------------------------------------------
- | Adds a New Cafe
- |-------------------------------------------------------------------------------
- | URL:            /api/v1/cafes
- | Controller:     API\CafesController@postNewCafe
- | Method:         POST
- | Description:    Adds a new cafe to the application
-*/
-Route::post('/cafes', 'API\CafesController@postNewCafe');
+
+
+
+});
+
+// 私有路由，需要登录才能访问
+Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function () {
+
+    /*
+     |-------------------------------------------------------------------------------
+     | Adds a New Cafe
+     |-------------------------------------------------------------------------------
+     | URL:            /api/v1/cafes
+     | Controller:     API\CafesController@postNewCafe
+     | Method:         POST
+     | Description:    Adds a new cafe to the application
+    */
+    Route::post('/cafes', 'API\CafesController@postNewCafe');
+});

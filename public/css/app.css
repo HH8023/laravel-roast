@@ -32,6 +32,11 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;*/
 
+span.validation {
+  color: red;
+  display: block;
+}
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.5.3
