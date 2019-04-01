@@ -13,7 +13,7 @@ class StoreCafeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class StoreCafeRequest extends FormRequest
     {
         return [
             //
-            'name'     => 'required',
+            'name'     => 'required|max:10',
             'address' => 'required',
             'city'     => 'required',
             'state'    => 'required',
@@ -37,6 +37,7 @@ class StoreCafeRequest extends FormRequest
     {
         return [
             'name.required'     => '咖啡店名字不能为空',
+            'name.max'           => '咖啡店名不能超过10个字符',
             'address.required' => '咖啡店地址不能为空',
             'city.required'     => '咖啡店所在城市不能为空',
             'state.required'    => '咖啡店所在省份不能为空',
